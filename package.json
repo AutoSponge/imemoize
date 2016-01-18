@@ -48,9 +48,9 @@
   },
   "scripts": {
     "lint": "standard",
-    "mocha": "./scripts/test.js",
+    "mocha": "mocha --compilers js:babel-register --reporter spec",
     "test": "npm run mocha",
-    "cover": "npm run mocha -- true",
+    "cover": "rm -rf coverage && babel-node node_modules/.bin/isparta cover --dir coverage ./node_modules/.bin/_mocha --compilers js:babel-register",
     "coveralls": "npm run cover && cat ./coverage/lcov.info | coveralls",
     "build": "babel -d lib/ src/",
     "clean": "rimraf lib",
