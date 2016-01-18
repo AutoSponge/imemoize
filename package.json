@@ -1,0 +1,68 @@
+{
+  "name": "imemoize",
+  "description": "memoizer for any arguments",
+  "main": "lib/index.js",
+  "peerDependencies": {
+    "immutable": "^3.7.6"
+  },
+  "devDependencies": {
+    "babel-cli": "*",
+    "babel-eslint": "^5.0.0-beta4",
+    "babel-plugin-transform-runtime": "*",
+    "babel-preset-es2015": "*",
+    "babel-preset-es2015-loose": "*",
+    "babel-preset-stage-0": "*",
+    "babel-register": "*",
+    "chai": "*",
+    "eslint": "*",
+    "eslint-config-standard": "*",
+    "eslint-plugin-standard": "*",
+    "immutable": "^3.7.6",
+    "isparta": "*",
+    "mocha": "*",
+    "rimraf": "*",
+    "standard": "*",
+    "semantic-release": "^4.3.5"
+  },
+  "standard": {
+    "parser": "babel-eslint"
+  },
+  "babel": {
+    "presets": [
+      "es2015-loose",
+      "stage-0"
+    ],
+    "plugins": [
+      "transform-runtime"
+    ],
+    "env": {
+      "production": {
+        "compact": true
+      }
+    }
+  },
+  "scripts": {
+    "lint": "standard",
+    "pretest": "npm run lint",
+    "mocha": "./scripts/test.js",
+    "test": "npm run mocha",
+    "cover": "npm run mocha -- true",
+    "build": "babel -d lib/ src/",
+    "clean": "rimraf lib",
+    "compile": "(BABEL_ENV=production npm run clean && npm run build)",
+    "compile:dev": "(npm run clean && npm run build -- -s)",
+    "prepublish": "npm run compile",
+    "postpublish": "rm -rf ./lib && git push --follow-tags",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AutoSponge/imemoize.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AutoSponge/imemoize/issues"
+  },
+  "homepage": "https://github.com/AutoSponge/imemoize#readme"
+}
