@@ -1,5 +1,6 @@
 {
   "name": "imemoize",
+  "version": "0.0.0-semantically-released",
   "description": "memoizer for any arguments",
   "main": "lib/index.js",
   "peerDependencies": {
@@ -15,6 +16,7 @@
     "babel-register": "*",
     "chai": "*",
     "coveralls": "^2.11.6",
+    "cz-conventional-changelog": "^1.1.5",
     "eslint": "*",
     "eslint-config-standard": "*",
     "eslint-plugin-standard": "*",
@@ -69,5 +71,10 @@
   "bugs": {
     "url": "https://github.com/AutoSponge/imemoize/issues"
   },
-  "homepage": "https://github.com/AutoSponge/imemoize#readme"
+  "homepage": "https://github.com/AutoSponge/imemoize#readme",
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
 }
