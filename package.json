@@ -14,15 +14,17 @@
     "babel-preset-stage-0": "*",
     "babel-register": "*",
     "chai": "*",
+    "coveralls": "^2.11.6",
     "eslint": "*",
     "eslint-config-standard": "*",
     "eslint-plugin-standard": "*",
     "immutable": "^3.7.6",
     "isparta": "*",
     "mocha": "*",
+    "mocha-lcov-reporter": "^1.0.0",
     "rimraf": "*",
-    "standard": "*",
-    "semantic-release": "^4.3.5"
+    "semantic-release": "^4.3.5",
+    "standard": "*"
   },
   "standard": {
     "parser": "babel-eslint",
@@ -49,6 +51,7 @@
     "mocha": "./scripts/test.js",
     "test": "npm run mocha",
     "cover": "npm run mocha -- true",
+    "coveralls": "npm run cover && cat ./coverage/lcov.info | coveralls",
     "build": "babel -d lib/ src/",
     "clean": "rimraf lib",
     "compile": "(BABEL_ENV=production npm run clean && npm run build)",
