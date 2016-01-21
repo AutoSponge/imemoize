@@ -70,4 +70,12 @@ describe('memoize', () => {
     thisArg.a = 4
     thisArg.exp(2).should.equal(aSquared)
   })
+
+  it('can memoize falsey vales', () => {
+    const a = {b: false}
+    const fn = memoize(obj => obj.b)
+    fn(a).should.equal(false)
+    a.b = true
+    fn(a).should.equal(false)
+  })
 })
